@@ -1,0 +1,51 @@
+`timescale 1ns/1ps
+
+// ------------------------------------------------------------
+// Shift Register Variant B - Right-Shifting Serial-In Register
+// Author: SooHyuk Cho
+// ------------------------------------------------------------
+// A right-shifting register with synchronous active-high reset.
+//
+// Behavior on each rising edge of clk:
+//   1. If rst=1, clear the register to 0.
+//   2. Else if en=1, shift all bits right by one position.
+//      The new most-significant bit (MSB) is filled with
+//      the serial input bit 'shift_in'.
+//   3. Else, hold the current value.
+//
+// Example for WIDTH=4:
+//   current  = 4'b1010
+//   shift_in = 1'b1
+//   next     = 4'b1101
+//
+// because:
+//   next[3]   = shift_in
+//   next[2:0] = current[3:1]
+// ------------------------------------------------------------
+
+module shiftreg_right #(
+    parameter WIDTH = 8
+) (
+    input clk,
+    input rst,
+    input en,
+    input shift_in,
+    output reg [WIDTH-1:0] data_out
+);
+
+always @(posedge clk) begin
+    if (rst) begin
+        // Highest priority: reset clears the register
+        data_out <= {WIDTH{1'b0}};
+    end else if (en) begin
+        // Shift right by one bit.
+        // Drop the old LSB, move remaining bits downward,
+        // and insert shift_in into the MSB position.
+        data_out <= {shift_in, data_out[WIDTH-1:1]};
+    end else begin
+        // Explicit hold behavior
+        data_out <= data_out;
+    end
+end
+
+endmodule
