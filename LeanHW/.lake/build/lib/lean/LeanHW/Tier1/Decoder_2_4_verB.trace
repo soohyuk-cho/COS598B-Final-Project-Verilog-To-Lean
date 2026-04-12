@@ -1,0 +1,30 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["086b9c3a7a7553bb.olean"],
+  "i": "7a311044ab0ca650.ilean",
+  "c": "b46b16c292e40e91.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/lib/lean /Users/soohyuk.cho/.elan/toolchains/leanprover--lean4---v4.29.0/bin/lean /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/LeanHW/Tier1/Decoder_2_4_verB.lean -o /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/lib/lean/LeanHW/Tier1/Decoder_2_4_verB.olean -i /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/lib/lean/LeanHW/Tier1/Decoder_2_4_verB.ilean -c /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/ir/LeanHW/Tier1/Decoder_2_4_verB.c --setup /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/ir/LeanHW/Tier1/Decoder_2_4_verB.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["LeanHW.Tier1.Decoder_2_4_verB:deps",
+   [["deps",
+     [["LeanHW/LeanHW:extraDep", [["@LeanHW:extraDep", "00000000000006bb"]]],
+      ["imports", "00000000000006bb"]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.29.0, commit 98dc76e3c0a9b856c9b98726b713fb04fab16740",
+   "60bb08ef22408c8a"],
+  ["/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/LeanHW/Tier1/Decoder_2_4_verB.lean",
+   "a89dc6d0d5ad9dbb"],
+  ["options", [["-DautoImplicit=false", "4a85acb881fd49d0"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: LeanHW.Tier1.Decoder_2_4_verB", "7d61adaa7c600e30"],
+  ["Package.id?: (some LeanHW)", "e79ee8d89c8db668"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "807eae08e0faf740"}

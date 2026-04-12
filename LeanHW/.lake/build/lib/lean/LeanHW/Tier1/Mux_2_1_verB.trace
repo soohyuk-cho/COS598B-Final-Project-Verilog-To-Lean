@@ -1,0 +1,30 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["3d0795d2deb843df.olean"],
+  "i": "e9e485f16c6230c7.ilean",
+  "c": "d718ec51e7797b4c.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/lib/lean /Users/soohyuk.cho/.elan/toolchains/leanprover--lean4---v4.29.0/bin/lean /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/LeanHW/Tier1/Mux_2_1_verB.lean -o /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/lib/lean/LeanHW/Tier1/Mux_2_1_verB.olean -i /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/lib/lean/LeanHW/Tier1/Mux_2_1_verB.ilean -c /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/ir/LeanHW/Tier1/Mux_2_1_verB.c --setup /Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/.lake/build/ir/LeanHW/Tier1/Mux_2_1_verB.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["LeanHW.Tier1.Mux_2_1_verB:deps",
+   [["deps",
+     [["LeanHW/LeanHW:extraDep", [["@LeanHW:extraDep", "00000000000006bb"]]],
+      ["imports", "00000000000006bb"]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.29.0, commit 98dc76e3c0a9b856c9b98726b713fb04fab16740",
+   "60bb08ef22408c8a"],
+  ["/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/LeanHW/LeanHW/Tier1/Mux_2_1_verB.lean",
+   "bd47e4a560a48ea2"],
+  ["options", [["-DautoImplicit=false", "4a85acb881fd49d0"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: LeanHW.Tier1.Mux_2_1_verB", "d57bf60bffb44bc1"],
+  ["Package.id?: (some LeanHW)", "e79ee8d89c8db668"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "08491492992d5642"}
