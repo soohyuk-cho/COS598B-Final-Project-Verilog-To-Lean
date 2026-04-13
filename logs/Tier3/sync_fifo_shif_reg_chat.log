@@ -1,0 +1,44 @@
+## sync_fifo_shif_reg (chat)
+
+- **Date**: 2026-04-12
+- **Tier**: 3
+- **Source**: chat
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 3/sync_fifo_shif_reg.lean:106:2: error: Expected type must not contain free variables
+  step false init { write_en := true, read_en := false, data_in := d } =
+    { shift_reg := (Array.replicate DEPTH (bv8 0)).set! 0 d, count := bv3 1, data_out := bv8 0 }
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 3/sync_fifo_shif_reg.lean:117:2: error: Expected type must not contain free variables
+  step false { shift_reg := (Array.replicate DEPTH (bv8 0)).set! 0 x, count := bv3 1, data_out := bv8 0 }
+      { write_en := false, read_en := true, data_in := d } =
+    { shift_reg := (Array.replicate DEPTH (bv8 0)).set! 0 x, count := bv3 0, data_out := x }
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 3/sync_fifo_shif_reg.lean:128:2: error: Expected type must not contain free variables
+  step false { shift_reg := (Array.replicate DEPTH (bv8 0)).set! 0 x, count := bv3 1, data_out := bv8 0 }
+      { write_en := true, read_en := true, data_in := d } =
+    { shift_reg := (((Array.replicate DEPTH (bv8 0)).set! 0 x).set! 1 x).set! 0 d, count := bv3 1, data_out := x }
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: NO
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->
