@@ -1,4 +1,4 @@
-module Mux_2_1 (
+module Mux_2_1_verB (
     input  wire in0,
     input  wire in1,
     input  wire sel,

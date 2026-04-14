@@ -1,4 +1,4 @@
-module Encoder_4_2 (
+module Encoder_4_2_verA (
     input  wire [3:0] in,
     output reg  [1:0] out
 );

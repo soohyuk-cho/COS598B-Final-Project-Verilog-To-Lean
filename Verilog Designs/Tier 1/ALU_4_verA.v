@@ -1,4 +1,4 @@
-module ALU_4 (
+module ALU_4_verA (
     input  wire [3:0] lhs,
     input  wire [3:0] rhs,
     input  wire [1:0] op,

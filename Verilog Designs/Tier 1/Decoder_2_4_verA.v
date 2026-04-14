@@ -1,4 +1,4 @@
-module Decoder_2_4 (
+module Decoder_2_4_verA (
     input  wire [1:0] in,
     output reg  [3:0] out
 );

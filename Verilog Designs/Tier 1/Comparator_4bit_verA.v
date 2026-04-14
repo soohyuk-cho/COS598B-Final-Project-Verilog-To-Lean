@@ -1,4 +1,4 @@
-module Comparator_4 (
+module Comparator_4_verA (
     input  wire [3:0] lhs,
     input  wire [3:0] rhs,
     output wire       lt,
