@@ -180,7 +180,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Check Lean translations")
-    parser.add_argument("--tier",   type=int, choices=[1, 2, 3], help="Check only one tier")
+    parser.add_argument("--tier",   type=int, choices=[1, 2, 3, 4], help="Check only one tier")
     parser.add_argument("--source", choices=["handcrafted", "chat"], help="Check only one source")
     parser.add_argument("--csv",    action="store_true", help="Output results as CSV")
     parser.add_argument("--logs",   action="store_true", help="Write per-module .log log files to logs/")

@@ -1,0 +1,31 @@
+## rob (chat)
+
+- **Date**: 2026-05-01
+- **Tier**: 4
+- **Source**: chat
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/scratch/gpfs/MALIK/ywfan/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/rob.lean:524:62: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  (evalOutputs init singleDispatchInput).dispatch_rob_valid
+of type `Array Bit`
+/scratch/gpfs/MALIK/ywfan/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/rob.lean:525:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'sorryAx' uses 'sorry' and/or contains errors
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->
