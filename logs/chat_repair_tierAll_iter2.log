@@ -1,0 +1,9 @@
+# Stats — 2026-05-02  sources=chat_repair  tiers=all  iters=[2]
+
+T  I  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+------------------------------------------------------------------------------------------------------------------
+3  2  chat_repair     sync_fifo_shif_reg_fixed_v2         yes        yes          YES        3      sequential    
+3  2  chat_repair     threshold_buffer_fifo_fixed_v2      yes        yes          YES        3      sequential    
+
+Compiles: 2/2  |  Sorry-free: 2/2  |  Schema-OK: 2/2
+  [chat_repair iter=2]  compiles=2/2  schema-ok=2/2

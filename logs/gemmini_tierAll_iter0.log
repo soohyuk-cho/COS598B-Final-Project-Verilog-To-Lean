@@ -1,0 +1,65 @@
+# Stats — 2026-05-02  sources=gemmini  tiers=all  iters=all
+
+T  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+---------------------------------------------------------------------------------------------------------------
+1  gemmini         ALU_4_verA                          yes        yes          YES        4      combinational 
+1  gemmini         ALU_4_verB                          yes        yes          YES        4      combinational 
+1  gemmini         Comparator_4bit_verA                yes        yes          YES        3      combinational 
+1  gemmini         Decoder_2_4_verA                    yes        yes          YES        4      combinational 
+1  gemmini         Decoder_2_4_verB                    yes        yes          YES        4      combinational 
+1  gemmini         Encoder_4_2_verA                    yes        yes          YES        5      combinational 
+1  gemmini         Encoder_4_2_verB                    yes        yes          YES        4      combinational 
+1  gemmini         Mux_2_1_verA                        yes        yes          YES        2      combinational 
+1  gemmini         Mux_2_1_verB                        yes        yes          YES        2      combinational 
+2  gemmini         accumulator_verA_en                 yes        yes          YES        3      sequential    
+2  gemmini         accumulator_verB_addsub             yes        yes          YES        4      sequential    
+2  gemmini         counter_verA                        yes        yes          YES        3      sequential    
+2  gemmini         counter_verB                        yes        yes          YES        4      sequential    
+2  gemmini         shift_reg_verA                      yes        yes          YES        3      sequential    
+2  gemmini         shift_reg_verB                      yes        yes          YES        3      sequential    
+2  gemmini         small_fsm_verA                      yes        yes          YES        5      sequential    
+2  gemmini         small_fsm_verB                      yes        yes          YES        6      sequential    
+3  gemmini         async_fifo_mem_buffer               NO         yes          YES        2      sequential    
+3  gemmini         async_shift_reg                     yes        yes          YES        2      sequential    
+3  gemmini         circular_buffer_fifo                yes        yes          YES        2      sequential    
+3  gemmini         dual_port_fifo                      yes        yes          YES        2      sequential    
+3  gemmini         lottery_arbiter                     yes        yes          YES        2      sequential    
+3  gemmini         parallel_prefix_arbiter             yes        yes          YES        2      sequential    
+3  gemmini         pq_arbiter                          yes        yes          YES        2      sequential    
+3  gemmini         rr_arbiter                          NO         yes          YES        2      sequential    
+3  gemmini         sync_fifo_mem_buffer                yes        yes          YES        2      sequential    
+3  gemmini         sync_fifo_shif_reg                  yes        yes          YES        2      sequential    
+3  gemmini         threshold_buffer_fifo               yes        yes          YES        2      sequential    
+3  gemmini         token_arbiter                       NO         yes          YES        8      sequential    
+4  gemmini         divider                             yes        yes          YES        5      sequential    
+4  gemmini         fpu_dp_add                          NO         NO           YES        2      sequential    
+4  gemmini         fpu_dp_div                          NO         NO           YES        2      sequential    
+4  gemmini         fpu_dp_mul                          NO         NO           YES        2      sequential    
+4  gemmini         fpu_sp_add                          NO         NO           YES        2      sequential    
+4  gemmini         fpu_sp_div                          NO         NO           YES        2      sequential    
+4  gemmini         fpu_sp_mul                          NO         NO           YES        2      sequential    
+4  gemmini         rob                                 NO         yes          YES        1      sequential    
+4  gemmini         sqrt                                yes        yes          YES        2      sequential    
+
+Compiles: 28/38  |  Sorry-free: 32/38  |  Schema-OK: 38/38
+  [gemmini]  compiles=28/38  schema-ok=38/38
+
+Compilation errors (10 file(s)):
+  gemmini/Tier 3/async_fifo_mem_buffer.lean
+  gemmini/Tier 3/rr_arbiter.lean
+  gemmini/Tier 3/token_arbiter.lean
+  gemmini/Tier 4/fpu_dp_add.lean
+  gemmini/Tier 4/fpu_dp_div.lean
+  gemmini/Tier 4/fpu_dp_mul.lean
+  gemmini/Tier 4/fpu_sp_add.lean
+  gemmini/Tier 4/fpu_sp_div.lean
+  gemmini/Tier 4/fpu_sp_mul.lean
+  gemmini/Tier 4/rob.lean
+
+Sorry violations (6 file(s)):
+  gemmini/Tier 4/fpu_dp_add.lean
+  gemmini/Tier 4/fpu_dp_div.lean
+  gemmini/Tier 4/fpu_dp_mul.lean
+  gemmini/Tier 4/fpu_sp_add.lean
+  gemmini/Tier 4/fpu_sp_div.lean
+  gemmini/Tier 4/fpu_sp_mul.lean

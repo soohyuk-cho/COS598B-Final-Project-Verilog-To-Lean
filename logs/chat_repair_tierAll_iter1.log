@@ -1,0 +1,21 @@
+# Stats — 2026-05-02  sources=chat_repair  tiers=all  iters=[1]
+
+T  I  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+------------------------------------------------------------------------------------------------------------------
+3  1  chat_repair     async_fifo_mem_buffer_fixed         yes        yes          YES        6      sequential    
+3  1  chat_repair     async_shift_reg_fixed               yes        yes          YES        6      sequential    
+3  1  chat_repair     circular_buffer_fifo_fixed          yes        yes          YES        10     sequential    
+3  1  chat_repair     dual_port_fifo_fixed                yes        yes          YES        11     sequential    
+3  1  chat_repair     sync_fifo_shif_reg_fixed            NO         yes          YES        6      sequential    
+3  1  chat_repair     threshold_buffer_fifo_fixed         NO         yes          YES        6      sequential    
+4  1  chat_repair     divider_fixed                       yes        yes          YES        1      sequential    
+4  1  chat_repair     fpu_dp_div_fixed                    yes        yes          YES        6      sequential    
+4  1  chat_repair     fpu_dp_mul_fixed                    yes        yes          YES        16     sequential    
+4  1  chat_repair     rob_fixed                           yes        yes          YES        9      sequential    
+
+Compiles: 8/10  |  Sorry-free: 10/10  |  Schema-OK: 10/10
+  [chat_repair iter=1]  compiles=8/10  schema-ok=10/10
+
+Compilation errors (2 file(s)):
+  chat_repair/Iter 1/Tier 3/sync_fifo_shif_reg_fixed.lean
+  chat_repair/Iter 1/Tier 3/threshold_buffer_fifo_fixed.lean

@@ -1,0 +1,70 @@
+## fpu_dp_mul (chat)
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: chat
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:170:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (isZeroUnpacked s.b_e s.b_m)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:175:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (isZeroUnpacked s.a_e s.a_m)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:181:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (isZeroUnpacked s.b_e s.b_m)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:179:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (isZeroUnpacked s.a_e s.a_m)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:167:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (isNaNUnpacked s.a_e s.a_m ∨ isNaNUnpacked s.b_e s.b_m)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:263:2: error: Expected type must not contain free variables
+  step init false i =
+    { phase := Phase.WAIT_REQ, a := init.a, b := init.b, z := init.z, result := init.result, a_m := init.a_m,
+      b_m := init.b_m, z_m := init.z_m, a_e := init.a_e, b_e := init.b_e, z_e := init.z_e, a_s := init.a_s,
+      b_s := init.b_s, z_s := init.z_s, guard := init.guard, round_bit := init.round_bit, sticky := init.sticky,
+      product := init.product, rdy := false }
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:267:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:272:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:287:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:295:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:303:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:311:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:330:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:343:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:360:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:379:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:396:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:404:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:412:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:420:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Chat/Tier 4/fpu_dp_mul.lean:425:2: error: Tactic `native_decide` failed: Could not evaluate decidable instance. Error: cannot evaluate code because 'fpu_dp_mul.step' uses 'sorry' and/or contains errors
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

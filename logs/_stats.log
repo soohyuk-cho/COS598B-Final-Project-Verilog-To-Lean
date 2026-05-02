@@ -1,0 +1,64 @@
+# Stats — 2026-05-02  sources=chat  tiers=all  iters=all
+
+T  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+---------------------------------------------------------------------------------------------------------------
+1  chat            ALU_4_verA                          yes        yes          YES        4      combinational 
+1  chat            ALU_4_verB                          yes        yes          YES        4      combinational 
+1  chat            Comparator_4bit_verA                yes        yes          YES        3      combinational 
+1  chat            Decoder_2_4_verA                    yes        yes          YES        4      combinational 
+1  chat            Decoder_2_4_verB                    yes        yes          YES        4      combinational 
+1  chat            Encoder_4_2_verA                    yes        yes          YES        5      combinational 
+1  chat            Encoder_4_2_verB                    yes        yes          YES        4      combinational 
+1  chat            Mux_2_1_verA                        yes        yes          YES        2      combinational 
+1  chat            Mux_2_1_verB                        yes        yes          YES        2      combinational 
+2  chat            accumulator_verA_en                 yes        yes          YES        5      sequential    
+2  chat            accumulator_verB_addsub             yes        yes          YES        6      sequential    
+2  chat            counter_verA                        yes        yes          YES        6      sequential    
+2  chat            counter_verB                        yes        yes          YES        6      sequential    
+2  chat            shift_reg_verA                      yes        yes          YES        7      sequential    
+2  chat            shift_reg_verB                      yes        yes          YES        7      sequential    
+2  chat            small_fsm_verA                      yes        yes          YES        8      sequential    
+2  chat            small_fsm_verB                      yes        yes          YES        11     sequential    
+3  chat            async_fifo_mem_buffer               NO         NO           YES        6      sequential    
+3  chat            async_shift_reg                     NO         NO           YES        6      sequential    
+3  chat            circular_buffer_fifo                NO         NO           YES        10     sequential    
+3  chat            dual_port_fifo                      NO         NO           YES        11     sequential    
+3  chat            lottery_arbiter                     yes        yes          YES        9      sequential    
+3  chat            parallel_prefix_arbiter             yes        yes          YES        8      sequential    
+3  chat            pq_arbiter                          yes        yes          YES        7      sequential    
+3  chat            rr_arbiter                          yes        yes          YES        7      sequential    
+3  chat            sync_fifo_mem_buffer                yes        yes          YES        6      sequential    
+3  chat            sync_fifo_shif_reg                  NO         yes          YES        6      sequential    
+3  chat            threshold_buffer_fifo               NO         NO           YES        6      sequential    
+3  chat            token_arbiter                       yes        yes          YES        7      sequential    
+4  chat            divider                             NO         yes          YES        1      sequential    
+4  chat            fpu_dp_add                          yes        yes          YES        13     sequential    
+4  chat            fpu_dp_div                          NO         yes          YES        6      sequential    
+4  chat            fpu_dp_mul                          NO         yes          YES        16     sequential    
+4  chat            fpu_sp_add                          yes        yes          YES        5      sequential    
+4  chat            fpu_sp_div                          yes        yes          YES        6      sequential    
+4  chat            fpu_sp_mul                          yes        yes          YES        16     sequential    
+4  chat            rob                                 NO         yes          YES        9      sequential    
+4  chat            sqrt                                yes        yes          YES        9      sequential    
+
+Compiles: 28/38  |  Sorry-free: 33/38  |  Schema-OK: 38/38
+  [chat]  compiles=28/38  schema-ok=38/38
+
+Compilation errors (10 file(s)):
+  chat/Tier 3/async_fifo_mem_buffer.lean
+  chat/Tier 3/async_shift_reg.lean
+  chat/Tier 3/circular_buffer_fifo.lean
+  chat/Tier 3/dual_port_fifo.lean
+  chat/Tier 3/sync_fifo_shif_reg.lean
+  chat/Tier 3/threshold_buffer_fifo.lean
+  chat/Tier 4/divider.lean
+  chat/Tier 4/fpu_dp_div.lean
+  chat/Tier 4/fpu_dp_mul.lean
+  chat/Tier 4/rob.lean
+
+Sorry violations (5 file(s)):
+  chat/Tier 3/async_fifo_mem_buffer.lean
+  chat/Tier 3/async_shift_reg.lean
+  chat/Tier 3/circular_buffer_fifo.lean
+  chat/Tier 3/dual_port_fifo.lean
+  chat/Tier 3/threshold_buffer_fifo.lean

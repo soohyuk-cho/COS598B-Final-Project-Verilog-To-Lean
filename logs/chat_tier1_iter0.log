@@ -1,0 +1,16 @@
+# Stats — 2026-05-02  sources=chat  tiers=[1]  iters=all
+
+T  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+---------------------------------------------------------------------------------------------------------------
+1  chat            ALU_4_verA                          skip       yes          YES        4      combinational 
+1  chat            ALU_4_verB                          skip       yes          YES        4      combinational 
+1  chat            Comparator_4bit_verA                skip       yes          YES        3      combinational 
+1  chat            Decoder_2_4_verA                    skip       yes          YES        4      combinational 
+1  chat            Decoder_2_4_verB                    skip       yes          YES        4      combinational 
+1  chat            Encoder_4_2_verA                    skip       yes          YES        5      combinational 
+1  chat            Encoder_4_2_verB                    skip       yes          YES        4      combinational 
+1  chat            Mux_2_1_verA                        skip       yes          YES        2      combinational 
+1  chat            Mux_2_1_verB                        skip       yes          YES        2      combinational 
+
+Sorry-free: 9/9  |  Schema-OK: 9/9  (compilation skipped)
+  [chat]  schema-ok=9/9
