@@ -7,7 +7,7 @@ This document defines the required Lean output structure for each tier of hardwa
 ## Schema A: Combinational Modules (Tier 1)
 
 Combinational modules have no state — they are pure functions from inputs to outputs.
-
+ 
 ### Required structure
 
 ```lean

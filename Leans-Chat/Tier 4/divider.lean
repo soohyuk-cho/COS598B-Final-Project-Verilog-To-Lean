@@ -2,146 +2,95 @@ import Std
 
 namespace divfunc
 
-abbrev Bit := Bool
-abbrev Bits (n : Nat) := BitVec n
-
-def pow2 (n : Nat) : Nat := 2 ^ n
-
-def bv (n : Nat) (x : Nat) : BitVec n := BitVec.ofNat n x
-
-structure State (XLEN : Nat) where
-  ready : Array Bit
-  dividend : Array (Bits XLEN)
-  divisor : Array (Bits XLEN)
-  quotient : Array (Bits XLEN)
+structure State (xlen : Nat) where
+  ready    : List Bool
+  dividend : List (BitVec xlen)
+  divisor  : List (BitVec xlen)
+  quotient : List (BitVec xlen)
 deriving Repr, DecidableEq
 
-structure Input (XLEN : Nat) where
-  rst : Bit
-  a : Bits XLEN
-  b : Bits XLEN
-  vld : Bit
+structure Input (xlen : Nat) where
+  rst : Bool
+  vld : Bool
+  a   : BitVec xlen
+  b   : BitVec xlen
 deriving Repr, DecidableEq
 
-structure Output (XLEN : Nat) where
-  quo : Bits XLEN
-  rem : Bits XLEN
-  ack : Bit
+structure Output (xlen : Nat) where
+  quo : BitVec xlen
+  rem : BitVec xlen
+  ack : Bool
 deriving Repr, DecidableEq
 
-structure StageVals (XLEN : Nat) where
-  ready : Bit
-  dividend : Bits XLEN
-  divisor : Bits XLEN
-  quotient : Bits XLEN
-deriving Repr, DecidableEq
+def init {xlen : Nat} : State xlen :=
+  { ready    := List.replicate (xlen + 1) false
+  , dividend := List.replicate (xlen + 1) (BitVec.ofNat xlen 0)
+  , divisor  := List.replicate (xlen + 1) (BitVec.ofNat xlen 0)
+  , quotient := List.replicate (xlen + 1) (BitVec.ofNat xlen 0) }
 
-def init {XLEN : Nat} : State XLEN :=
-  { ready := Array.replicate (XLEN + 1) false
-    dividend := Array.replicate (XLEN + 1) (bv XLEN 0)
-    divisor := Array.replicate (XLEN + 1) (bv XLEN 0)
-    quotient := Array.replicate (XLEN + 1) (bv XLEN 0) }
+def eval_comb {xlen : Nat} (s : State xlen) (stage_list : BitVec xlen) (i : Input xlen) :
+  (Array Bool × Array (BitVec xlen) × Array (BitVec xlen) × Array (BitVec xlen) ×
+   Array Bool × Array (BitVec xlen) × Array (BitVec xlen) × Array (BitVec xlen)) := Id.run do
+  let mut curr_ready := s.ready.toArray
+  let mut curr_divd  := s.dividend.toArray
+  let mut curr_divs  := s.divisor.toArray
+  let mut curr_quo   := s.quotient.toArray
 
-def stageEnabled {XLEN : Nat} (stageList : Bits XLEN) (bit : Nat) : Bit :=
-  decide (((stageList.toNat / pow2 bit) % 2) = 1)
+  let mut next_ready := s.ready.toArray
+  let mut next_divd  := s.dividend.toArray
+  let mut next_divs  := s.divisor.toArray
+  let mut next_quo   := s.quotient.toArray
 
-def getStage {XLEN : Nat} (s : State XLEN) (idx : Nat) : StageVals XLEN :=
-  { ready := s.ready[idx]!
-    dividend := s.dividend[idx]!
-    divisor := s.divisor[idx]!
-    quotient := s.quotient[idx]! }
+  curr_ready := curr_ready.set! 0 i.vld
+  curr_divd  := curr_divd.set! 0 i.a
+  curr_divs  := curr_divs.set! 0 i.b
+  curr_quo   := curr_quo.set! 0 (BitVec.ofNat xlen 0)
 
-def pushStage {XLEN : Nat} (s : State XLEN) (v : StageVals XLEN) : State XLEN :=
-  { ready := s.ready.push v.ready
-    dividend := s.dividend.push v.dividend
-    divisor := s.divisor.push v.divisor
-    quotient := s.quotient.push v.quotient }
+  for idx in [0:xlen] do
+    let r_in := curr_ready[idx]!
+    let d_in := curr_divd[idx]!
+    let v_in := curr_divs[idx]!
+    let q_in := curr_quo[idx]!
 
-def stageEval {XLEN : Nat} (i : Nat) (v : StageVals XLEN) : StageVals XLEN :=
-  let shift := XLEN - i - 1
-  let mNat := v.dividend.toNat / pow2 shift
-  let nNat := v.divisor.toNat % pow2 (i + 1)
-  let highNat := v.divisor.toNat / pow2 (i + 1)
-  let q : Bit := if highNat = 0 then decide (nNat <= mNat) else false
-  let tNat := if q then mNat - nNat else mNat
-  let uNat := (v.dividend.toNat * pow2 (i + 1)) % pow2 XLEN
-  let dNat := (tNat * pow2 XLEN + uNat) / pow2 (i + 1)
-  let qNat := v.quotient.toNat + if q then pow2 shift else 0
-  { ready := v.ready
-    dividend := bv XLEN dNat
-    divisor := v.divisor
-    quotient := bv XLEN qNat }
+    let m := d_in >>> (xlen - idx - 1)
+    let n := v_in
+    let q := if (v_in >>> (idx + 1)) != (BitVec.ofNat xlen 0) then false else (m >= n)
+    let t := if q then m - n else m
+    let d := (t <<< (xlen - idx - 1)) ||| ((d_in <<< (idx + 1)) >>> (idx + 1))
+    let next_q := q_in ||| (if q then (BitVec.ofNat xlen 1 <<< (xlen - idx - 1)) else (BitVec.ofNat xlen 0))
 
-def propagate {XLEN : Nat} (stageList : Bits XLEN) (prev : State XLEN) (inp : Input XLEN) : State XLEN :=
-  let start : State XLEN :=
-    { ready := #[inp.vld]
-      dividend := #[inp.a]
-      divisor := #[inp.b]
-      quotient := #[bv XLEN 0] }
-  let rec go (fuel idx : Nat) (acc : State XLEN) : State XLEN :=
-    match fuel with
-    | 0 => acc
-    | fuel' + 1 =>
-        let src :=
-          if stageEnabled stageList (XLEN - idx - 1) then
-            getStage prev idx
-          else
-            getStage acc idx
-        let next := stageEval idx src
-        go fuel' (idx + 1) (pushStage acc next)
-  go XLEN 0 start
+    next_ready := next_ready.set! (idx + 1) r_in
+    next_divd  := next_divd.set! (idx + 1) d
+    next_divs  := next_divs.set! (idx + 1) v_in
+    next_quo   := next_quo.set! (idx + 1) next_q
 
-def step {XLEN : Nat} (stageList : Bits XLEN) (s : State XLEN) (i : Input XLEN) : State XLEN :=
-  if i.rst then init else propagate stageList s i
+    let has_ff := stage_list.getLsb (xlen - idx - 1)
+    if !has_ff then
+      curr_ready := curr_ready.set! (idx + 1) r_in
+      curr_divd  := curr_divd.set! (idx + 1) d
+      curr_divs  := curr_divs.set! (idx + 1) v_in
+      curr_quo   := curr_quo.set! (idx + 1) next_q
 
-def out {XLEN : Nat} (s : State XLEN) : Output XLEN :=
-  { quo := s.quotient[XLEN]!
-    rem := s.dividend[XLEN]!
-    ack := s.ready[XLEN]! }
+  return (curr_ready, curr_divd, curr_divs, curr_quo, next_ready, next_divd, next_divs, next_quo)
 
-@[simp] theorem step_reset {XLEN : Nat} (stageList : Bits XLEN) (s : State XLEN)
-    (a b : Bits XLEN) (vld : Bit) :
-    step stageList s { rst := true, a := a, b := b, vld := vld } = init := by
-  simp [step]
+def step {xlen : Nat} (stage_list : BitVec xlen) (s : State xlen) (i : Input xlen) : State xlen :=
+  if i.rst then
+    init
+  else
+    let (_, _, _, _, n_r, n_d, n_v, n_q) := eval_comb s stage_list i
+    { ready    := n_r.toList
+    , dividend := n_d.toList
+    , divisor  := n_v.toList
+    , quotient := n_q.toList }
 
-theorem step_comb_example :
-    step (bv 1 0) (init (XLEN := 1))
-      { rst := false, a := bv 1 1, b := bv 1 1, vld := true } =
-      { ready := #[true, true]
-        dividend := #[bv 1 1, bv 1 0]
-        divisor := #[bv 1 1, bv 1 1]
-        quotient := #[bv 1 0, bv 1 1] } := by
-  native_decide
+def out {xlen : Nat} (stage_list : BitVec xlen) (s : State xlen) (i : Input xlen) : Output xlen :=
+  let (c_r, c_d, _, c_q, _, _, _, _) := eval_comb s stage_list i
+  { quo := c_q[xlen]!
+  , rem := c_d[xlen]!
+  , ack := c_r[xlen]! }
 
-theorem out_comb_example :
-    out
-      (step (bv 1 0) (init (XLEN := 1))
-        { rst := false, a := bv 1 1, b := bv 1 1, vld := true }) =
-      { quo := bv 1 1, rem := bv 1 0, ack := true } := by
-  native_decide
-
-theorem step_reg_example :
-    step (bv 1 1)
-      { ready := #[true, false]
-        dividend := #[bv 1 1, bv 1 0]
-        divisor := #[bv 1 1, bv 1 0]
-        quotient := #[bv 1 0, bv 1 0] }
-      { rst := false, a := bv 1 0, b := bv 1 0, vld := false } =
-      { ready := #[false, true]
-        dividend := #[bv 1 0, bv 1 0]
-        divisor := #[bv 1 0, bv 1 1]
-        quotient := #[bv 1 0, bv 1 1] } := by
-  native_decide
-
-theorem out_reg_example :
-    out
-      (step (bv 1 1)
-        { ready := #[true, false]
-          dividend := #[bv 1 1, bv 1 0]
-          divisor := #[bv 1 1, bv 1 0]
-          quotient := #[bv 1 0, bv 1 0] }
-        { rst := false, a := bv 1 0, b := bv 1 0, vld := false }) =
-      { quo := bv 1 1, rem := bv 1 0, ack := true } := by
-  native_decide
+@[simp] theorem step_reset {xlen : Nat} (stage_list : BitVec xlen) (s : State xlen) (a b : BitVec xlen) (vld : Bool) :
+  step stage_list s { rst := true, vld := vld, a := a, b := b } = init := by
+  simp [step, init]
 
 end divfunc

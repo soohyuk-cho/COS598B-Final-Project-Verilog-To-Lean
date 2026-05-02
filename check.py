@@ -2,7 +2,8 @@
 """
 Lean translation checker for Verilog-to-Lean benchmark.
 
-Scans Leans-Handcrafted/ and Leans-Chat/ for .lean files and checks each for:
+Scans Leans-Handcrafted/, Leans-Chat/, and Leans-Gemmini/ for .lean files
+and checks each for:
   Level 0: Per-file compilation success (via `lean <file>`)
   Level 1: Structural checks
     - No `sorry` usage
@@ -11,10 +12,11 @@ Scans Leans-Handcrafted/ and Leans-Chat/ for .lean files and checks each for:
     - Has at least one theorem
 
 Usage:
-  python3 check.py                        # check all tiers, both sources
+  python3 check.py                        # check all tiers, all sources
   python3 check.py --tier 2               # only Tier 2
   python3 check.py --source chat          # only ChatGPT-generated files
   python3 check.py --source handcrafted   # only hand-crafted files
+  python3 check.py --source gemmini       # only Gemmini-generated files
   python3 check.py --csv                  # output as CSV
   python3 check.py --logs                 # write per-module .log logs to logs/
   python3 check.py --no-compile           # structural checks only (faster)
@@ -32,7 +34,10 @@ PROJECT_ROOT = Path(__file__).parent
 SOURCE_DIRS = {
     "handcrafted": PROJECT_ROOT / "Leans-Handcrafted",
     "chat":        PROJECT_ROOT / "Leans-Chat",
+    "gemmini":     PROJECT_ROOT / "Leans-Gemmini",
 }
+
+ALL_SOURCES = ["handcrafted", "chat", "gemmini"]
 LOG_DIR = PROJECT_ROOT / "logs"
 
 
@@ -79,7 +84,7 @@ def check_structural(path: Path) -> dict:
     r["has_step"]           = bool(re.search(r"^def step\b", text, re.MULTILINE))
     r["has_inputs_or_state"]= bool(re.search(r"^structure\s+(Inputs|State)\b", text, re.MULTILINE))
     r["has_outputs"]        = bool(re.search(r"^structure\s+(Outputs|Output)\b", text, re.MULTILINE))
-    r["has_theorems"]       = bool(re.search(r"^theorem\b", text, re.MULTILINE))
+    r["has_theorems"]       = bool(re.search(r"^\s*(?:@\[.*?\]\s*)*(theorem|lemma|example)\b", text, re.MULTILINE))
 
     if r["has_eval"] and not r["has_step"]:
         r["module_type"] = "combinational"
@@ -178,17 +183,17 @@ def write_log(entry: dict, struct: dict, compiles: bool, sorry_warned: bool, err
 
 def main():
     import argparse
-
+    
     parser = argparse.ArgumentParser(description="Check Lean translations")
     parser.add_argument("--tier",   type=int, choices=[1, 2, 3, 4], help="Check only one tier")
-    parser.add_argument("--source", choices=["handcrafted", "chat"], help="Check only one source")
+    parser.add_argument("--source", choices=["handcrafted", "chat", "gemmini"], help="Check only one source")
     parser.add_argument("--csv",    action="store_true", help="Output results as CSV")
     parser.add_argument("--logs",   action="store_true", help="Write per-module .log log files to logs/")
     parser.add_argument("--no-compile", action="store_true", help="Skip compilation (structural checks only)")
     args = parser.parse_args()
 
     tiers   = [args.tier]   if args.tier   else []
-    sources = [args.source] if args.source else ["handcrafted", "chat"]
+    sources = [args.source] if args.source else ALL_SOURCES
 
     entries = collect_files(tiers, sources)
     if not entries:
@@ -210,10 +215,13 @@ def main():
             compile_str = "skip"
 
         sorry_ok = struct["sorry_free"] and not sorry_warned
+        # Build a short human-readable path: <source>/Tier <N>/<stem>.lean
+        rel_path = f"{entry['source']}/Tier {entry['tier']}/{path.name}"
         row = {
             "tier":          entry["tier"],
             "source":        entry["source"],
             "module":        path.stem,
+            "rel_path":      rel_path,
             "compiles":      compile_str,
             "sorry_free":    "yes" if sorry_ok        else "NO",
             "sorry_detail":  ("text+compiler" if (struct["sorry_free"] and not sorry_warned)
@@ -241,7 +249,9 @@ def main():
             print()
 
     if args.csv:
-        writer = csv.DictWriter(sys.stdout, fieldnames=rows[0].keys())
+        # Exclude rel_path from CSV (it's redundant with tier+source+module)
+        csv_fields = [k for k in rows[0].keys() if k != "rel_path"]
+        writer = csv.DictWriter(sys.stdout, fieldnames=csv_fields, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
         return
@@ -269,7 +279,7 @@ def main():
         print(f"Sorry-free: {sorry_free}/{total}  |  Schema-OK: {schema_ok}/{total}  (compilation skipped)")
 
     # Summary by source
-    for src in ["handcrafted", "chat"]:
+    for src in ALL_SOURCES:
         src_rows = [r for r in rows if r["source"] == src]
         if not src_rows:
             continue
@@ -280,6 +290,28 @@ def main():
             print(f"  [{src}]  compiles={c}/{n}  schema-ok={s}/{n}")
         else:
             print(f"  [{src}]  schema-ok={s}/{n}")
+
+    # -----------------------------------------------------------------------
+    # Per-category error file lists
+    # -----------------------------------------------------------------------
+    def _print_failing(label: str, failing_rows: list[dict]) -> None:
+        if not failing_rows:
+            return
+        print(f"\n{label} ({len(failing_rows)} file(s)):")
+        for r in failing_rows:
+            print(f"  {r['rel_path']}")
+
+    if not skipped:
+        compile_errors  = [r for r in rows if r["compiles"] == "NO"]
+        _print_failing("Compilation errors", compile_errors)
+
+    sorry_errors    = [r for r in rows if r["sorry_free"] == "NO"]
+    schema_errors   = [r for r in rows if r["schema_ok"] == "NO"]
+    no_theorems     = [r for r in rows if r["has_theorems"] == "NO"]
+
+    _print_failing("Sorry violations", sorry_errors)
+    _print_failing("Schema failures (missing namespace/structures/eval/step)", schema_errors)
+    _print_failing("No theorems", no_theorems)
 
 
 if __name__ == "__main__":
