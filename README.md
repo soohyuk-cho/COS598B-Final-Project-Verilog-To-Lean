@@ -1,6 +1,6 @@
-# Verilog-to-Lean Autoformalization
+# Bridging RTL and Theorem Proving: LLM-Assisted Translation from Verilog to Lean
 
-**COS 598B: Formal Methods for Computer Systems (Spring 2026)**  
+**COS 598B: Formal Methods with-and-for Machine Learning (Spring 2026)**  
 Princeton University
 
 **Authors:**  
@@ -27,7 +27,7 @@ We evaluate two LLMs on a four-tier benchmark of increasing complexity:
 | Tier 3 | Controller-style (FIFOs, arbiters, circular buffers) | 12 |
 | Tier 4 | Complex datapaths (FPU, divider, reorder buffer) | 9 |
 
-![Pipeline Diagram](pipeline_diagram.pdf)
+![alt text](https://github.com/soohyuk-cho/COS598B-Final-Project-Verilog-To-Lean/blob/main/pipeline_diagram.pdf "Pipeline Diagram")
 
 The pipeline supports two modes:
 - **System A (One-shot):** Single-prompt Lean generation from Verilog + schema
