@@ -209,6 +209,6 @@ The benchmark spans four complexity tiers, each with two Verilog variants per de
 If you use this benchmark or evaluation framework, please cite:
 
 ```
-SooHyuk Cho and Yu-Wei Fan. "Verilog-to-Lean Autoformalization via Large Language Models."
+SooHyuk Cho and Yu-Wei Fan. "Bridging RTL and Theorem Proving: LLM-Assisted Translation from Verilog to Lean."
 COS 598B Final Project, Princeton University, Spring 2026.
 ```
