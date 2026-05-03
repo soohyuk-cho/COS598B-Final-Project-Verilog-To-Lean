@@ -1,0 +1,120 @@
+## rob_fixed (gemmini_repair) — Iter 2
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 2
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:45:13: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:124:37: error: Invalid `⟨...⟩` notation: The expected type `Nat` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:124:29: error: could not synthesize default value for parameter 'h' using tactics
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:124:29: error: failed to prove index is valid, possible solutions:
+  - Use `have`-expressions to prove the index is valid
+  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid
+  - Use `a[i]?` notation instead, result is an `Option` type
+  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid
+α : Type
+arr : Array α
+idx : Nat
+val : α
+h : idx < arr.size
+⊢ sorry < arr.size
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:241:34: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:242:36: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:255:30: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:256:32: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:257:32: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:258:36: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:259:34: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:260:30: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:261:29: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:262:32: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:263:27: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:265:36: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:266:38: error(lean.unknownIdentifier): Unknown identifier `mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:333:2: error: don't know how to synthesize implicit argument `cdbw`
+  @step (?m.11 s i) (?m.12 s i) (?m.13 s i) w_idx s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+context:
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ Nat
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:333:2: error: don't know how to synthesize implicit argument `cw`
+  @step (?m.11 s i) (?m.12 s i) (?m.13 s i) w_idx s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+context:
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ Nat
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/rob_fixed.lean:333:2: error: don't know how to synthesize implicit argument `dw`
+  @step (?m.11 s i) (?m.12 s i) (?m.13 s i) w_idx s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+context:
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ Nat
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (1)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

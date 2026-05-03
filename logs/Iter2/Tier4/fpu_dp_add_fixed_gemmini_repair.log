@@ -1,0 +1,31 @@
+## fpu_dp_add_fixed (gemmini_repair) — Iter 2
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 2
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: YES (warning)
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_add_fixed.lean:212:9: error: unexpected token 'mut'; expected '(', ':=', 'rec', '|' or term
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_add_fixed.lean:238:17: warning: declaration uses `sorry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_add_fixed.lean:236:16: warning: declaration uses `sorry`
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (1)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

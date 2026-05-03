@@ -1,0 +1,25 @@
+## fpu_sp_div_fixed (gemmini_repair) — Iter 2
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 2
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: yes
+- Sorry axiom in compiler output: no
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (2)
+- Schema OK: YES
+
+### Overall status: PASS
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

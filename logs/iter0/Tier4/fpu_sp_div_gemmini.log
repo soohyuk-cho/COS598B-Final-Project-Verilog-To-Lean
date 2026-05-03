@@ -1,0 +1,72 @@
+## fpu_sp_div (gemmini)
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: YES (warning)
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:185:26: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.quotient
+of type `BitVec 51`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:221:28: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.z_e
+of type `BitVec 10`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:222:28: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.z_m
+of type `BitVec 24`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:98:26: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.a
+of type `BitVec 32`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:99:26: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.b
+of type `BitVec 32`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:100:27: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.a
+of type `BitVec 32`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:101:27: error(lean.invalidField): Invalid field `extract`: The environment does not contain `BitVec.extract`, so it is not possible to project the field `extract` from an expression
+  s.b
+of type `BitVec 32`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:240:74: error: unsolved goals
+s : State
+d1 d2 : BitVec 32
+dv : Bool
+⊢ sorry s { rst_n := false, din1 := d1, din2 := d2, dval := dv } =
+    { state := FsmState.WAIT_REQ, rdy := false, result := 0#32, a := 0#32, b := 0#32, z := 0#32, a_m := 0#24,
+      b_m := 0#24, z_m := 0#24, a_e := 0#10, b_e := 0#10, z_e := 0#10, a_s := false, b_s := false, z_s := false,
+      guard := false, round_bit := false, sticky := false, quotient := 0#51, divisor := 0#51, dividend := 0#51,
+      remainder := 0#51, count := 0#6 }
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:241:8: warning: declaration uses `sorry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:245:57: error: unsolved goals
+s : State
+d1 d2 : BitVec 32
+⊢ sorry
+      { state := FsmState.WAIT_REQ, rdy := s.rdy, result := s.result, a := s.a, b := s.b, z := s.z, a_m := s.a_m,
+        b_m := s.b_m, z_m := s.z_m, a_e := s.a_e, b_e := s.b_e, z_e := s.z_e, a_s := s.a_s, b_s := s.b_s, z_s := s.z_s,
+        guard := s.guard, round_bit := s.round_bit, sticky := s.sticky, quotient := s.quotient, divisor := s.divisor,
+        dividend := s.dividend, remainder := s.remainder, count := s.count }
+      { rst_n := true, din1 := d1, din2 := d2, dval := false } =
+    { state := FsmState.WAIT_REQ, rdy := false, result := s.result, a := s.a, b := s.b, z := s.z, a_m := s.a_m,
+      b_m := s.b_m, z_m := s.z_m, a_e := s.a_e, b_e := s.b_e, z_e := s.z_e, a_s := s.a_s, b_s := s.b_s, z_s := s.z_s,
+      guard := s.guard, round_bit := s.round_bit, sticky := s.sticky, quotient := s.quotient, divisor := s.divisor,
+      dividend := s.dividend, remainder := s.remainder, count := s.count }
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/fpu_sp_div.lean:246:8: warning: declaration uses `sorry`
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (2)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

@@ -1,0 +1,54 @@
+## fpu_dp_div_fixed (gemmini_repair) — Iter 2
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 2
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: YES (warning)
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:138:59: error(lean.invalidField): Invalid field `setBit`: The environment does not contain `BitVec.setBit`, so it is not possible to project the field `setBit` from an expression
+  s.a_m
+of type `BitVec 53`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:140:59: error(lean.invalidField): Invalid field `setBit`: The environment does not contain `BitVec.setBit`, so it is not possible to project the field `setBit` from an expression
+  s.b_m
+of type `BitVec 53`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:174:51: error(lean.invalidField): Invalid field `setBit`: The environment does not contain `BitVec.setBit`, so it is not possible to project the field `setBit` from an expression
+  s.quotient
+of type `BitVec 109`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:116:39: error(lean.invalidField): Invalid field `setBit`: The environment does not contain `BitVec.setBit`, so it is not possible to project the field `setBit` from an expression
+  0#64
+of type `BitVec 64`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:123:42: error(lean.invalidField): Invalid field `setLsb`: The environment does not contain `BitVec.setLsb`, so it is not possible to project the field `setLsb` from an expression
+  0#64
+of type `BitVec 64`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:127:43: error(lean.invalidField): Invalid field `setLsb`: The environment does not contain `BitVec.setLsb`, so it is not possible to project the field `setLsb` from an expression
+  0#64
+of type `BitVec 64`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:130:42: error(lean.invalidField): Invalid field `setLsb`: The environment does not contain `BitVec.setLsb`, so it is not possible to project the field `setLsb` from an expression
+  0#64
+of type `BitVec 64`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:134:43: error(lean.invalidField): Invalid field `setLsb`: The environment does not contain `BitVec.setLsb`, so it is not possible to project the field `setLsb` from an expression
+  0#64
+of type `BitVec 64`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:246:17: warning: declaration uses `sorry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 2/Tier 4/fpu_dp_div_fixed.lean:244:16: warning: declaration uses `sorry`
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (1)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

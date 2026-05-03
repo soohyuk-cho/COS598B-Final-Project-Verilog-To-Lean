@@ -1,0 +1,76 @@
+## fpu_dp_add_fixed (gemmini_repair) — Iter 3
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 3
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean:115:63: error: Application type mismatch: The argument
+  fun hi lo => BitVec.extractLsb hi lo (s.b_e + 1023#13)
+has type
+  (hi lo : Nat) → BitVec (hi - lo + 1)
+but is expected to have type
+  BitVec ?m.281
+in the application
+  BitVec.zeroExtend 64 fun hi lo => BitVec.extractLsb hi lo (s.b_e + 1023#13)
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean:115:143: error: Application type mismatch: The argument
+  fun hi lo => BitVec.extractLsb hi lo (s.b_m >>> 3)
+has type
+  (hi lo : Nat) → BitVec (hi - lo + 1)
+but is expected to have type
+  BitVec ?m.299
+in the application
+  BitVec.zeroExtend 64 fun hi lo => BitVec.extractLsb hi lo (s.b_m >>> 3)
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean:116:58: error: Application type mismatch: The argument
+  fun hi lo => BitVec.extractLsb hi lo (s.b_e + 1023#13)
+has type
+  (hi lo : Nat) → BitVec (hi - lo + 1)
+but is expected to have type
+  BitVec ?m.325
+in the application
+  BitVec.zeroExtend 64 fun hi lo => BitVec.extractLsb hi lo (s.b_e + 1023#13)
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean:116:138: error: Application type mismatch: The argument
+  fun hi lo => BitVec.extractLsb hi lo (s.b_m >>> 3)
+has type
+  (hi lo : Nat) → BitVec (hi - lo + 1)
+but is expected to have type
+  BitVec ?m.343
+in the application
+  BitVec.zeroExtend 64 fun hi lo => BitVec.extractLsb hi lo (s.b_m >>> 3)
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean:117:58: error: Application type mismatch: The argument
+  fun hi lo => BitVec.extractLsb hi lo (s.a_e + 1023#13)
+has type
+  (hi lo : Nat) → BitVec (hi - lo + 1)
+but is expected to have type
+  BitVec ?m.369
+in the application
+  BitVec.zeroExtend 64 fun hi lo => BitVec.extractLsb hi lo (s.a_e + 1023#13)
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean:117:138: error: Application type mismatch: The argument
+  fun hi lo => BitVec.extractLsb hi lo (s.a_m >>> 3)
+has type
+  (hi lo : Nat) → BitVec (hi - lo + 1)
+but is expected to have type
+  BitVec ?m.387
+in the application
+  BitVec.zeroExtend 64 fun hi lo => BitVec.extractLsb hi lo (s.a_m >>> 3)
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (1)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

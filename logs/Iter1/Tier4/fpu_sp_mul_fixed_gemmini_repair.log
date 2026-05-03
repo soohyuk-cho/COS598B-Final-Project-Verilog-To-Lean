@@ -1,0 +1,33 @@
+## fpu_sp_mul_fixed (gemmini_repair) — Iter 1
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 1
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: YES (warning)
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean:159:38: error: expected ';' or line break
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean:211:8: warning: declaration uses `sorry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean:209:16: warning: declaration uses `sorry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean:216:8: warning: declaration uses `sorry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean:213:16: warning: declaration uses `sorry`
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (2)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

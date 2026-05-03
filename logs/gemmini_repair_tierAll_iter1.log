@@ -1,0 +1,37 @@
+# Stats — 2026-05-02  sources=gemmini_repair  tiers=all  iters=[1]
+
+T  I  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+------------------------------------------------------------------------------------------------------------------
+3  1  gemmini_repair  async_fifo_mem_buffer_fixed         yes        yes          YES        2      sequential    
+3  1  gemmini_repair  rr_arbiter_fixed                    yes        yes          YES        2      sequential    
+3  1  gemmini_repair  token_arbiter_fixed                 yes        yes          YES        7      sequential    
+4  1  gemmini_repair  fpu_dp_add_fixed                    NO         yes          YES        0      sequential    
+4  1  gemmini_repair  fpu_dp_div_fixed                    NO         yes          YES        0      sequential    
+4  1  gemmini_repair  fpu_dp_mul_fixed                    NO         yes          YES        0      sequential    
+4  1  gemmini_repair  fpu_sp_add_fixed                    NO         yes          YES        0      sequential    
+4  1  gemmini_repair  fpu_sp_div_fixed                    NO         NO           YES        1      sequential    
+4  1  gemmini_repair  fpu_sp_mul_fixed                    NO         NO           YES        2      sequential    
+4  1  gemmini_repair  rob_fixed                           NO         yes          YES        0      sequential    
+
+Compiles: 3/10  |  Sorry-free: 8/10  |  Schema-OK: 10/10
+  [gemmini_repair iter=1]  compiles=3/10  schema-ok=10/10
+
+Compilation errors (7 file(s)):
+  gemmini_repair/Iter 1/Tier 4/fpu_dp_add_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_dp_div_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_dp_mul_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_sp_add_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_sp_div_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/rob_fixed.lean
+
+Sorry violations (2 file(s)):
+  gemmini_repair/Iter 1/Tier 4/fpu_sp_div_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_sp_mul_fixed.lean
+
+No theorems (5 file(s)):
+  gemmini_repair/Iter 1/Tier 4/fpu_dp_add_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_dp_div_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_dp_mul_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/fpu_sp_add_fixed.lean
+  gemmini_repair/Iter 1/Tier 4/rob_fixed.lean

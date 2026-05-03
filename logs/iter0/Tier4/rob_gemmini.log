@@ -1,0 +1,294 @@
+## rob (gemmini)
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:45:13: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:118:13: error: Application type mismatch: The argument
+  w_idx
+has type
+  Nat
+but is expected to have type
+  Fin (w_idx + 1)
+in the application
+  ptr.getLsb w_idx
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:137:36: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:145:34: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:153:34: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:161:34: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:175:30: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:197:35: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:209:32: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:138:9: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `valid`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Char.valid`
+  • `RobEntry.valid`
+  • `Std.Time.PlainDate.valid`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:139:17: error: expected structure
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:176:19: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `branch`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Lean.RArray.branch`
+  • `RobEntry.branch`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:176:35: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `branch_mispredicted`
+
+Hint: Consider replacing the field projection `.branch_mispredicted` with a call to the function `RobEntry.branch_mispredicted`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:177:22: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `valid`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Char.valid`
+  • `RobEntry.valid`
+  • `Std.Time.PlainDate.valid`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:177:37: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `completed`
+
+Hint: Consider replacing the field projection `.completed` with a call to the function `RobEntry.completed`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:183:36: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `branch_correct_pc`
+
+Hint: Consider replacing the field projection `.branch_correct_pc` with a call to the function `RobEntry.branch_correct_pc`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:198:45: error: expected structure
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:199:28: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:201:37: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  next_entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:202:47: error: expected structure
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:210:48: error: expected structure
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:250:34: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:251:36: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:264:30: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:265:32: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:266:32: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:267:36: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:268:34: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:269:30: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:270:29: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:271:32: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:272:27: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:274:36: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:275:38: error(lean.unknownIdentifier): Unknown constant `Array.mkArray`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:285:27: error(lean.invalidField): Invalid field `get!`: The environment does not contain `Array.get!`, so it is not possible to project the field `get!` from an expression
+  s.entries
+of type `Array RobEntry`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:286:19: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `branch`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Lean.RArray.branch`
+  • `RobEntry.branch`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:286:35: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `branch_mispredicted`
+
+Hint: Consider replacing the field projection `.branch_mispredicted` with a call to the function `RobEntry.branch_mispredicted`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:287:22: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `valid`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Char.valid`
+  • `RobEntry.valid`
+  • `Std.Time.PlainDate.valid`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:287:37: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `completed`
+
+Hint: Consider replacing the field projection `.completed` with a call to the function `RobEntry.completed`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:306:36: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `branch_correct_pc`
+
+Hint: Consider replacing the field projection `.branch_correct_pc` with a call to the function `RobEntry.branch_correct_pc`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:307:39: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `checkpoint_id`
+
+Hint: Consider replacing the field projection `.checkpoint_id` with a call to the function `RobEntry.checkpoint_id`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:291:54: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `arch_rd`
+
+Hint: Consider replacing the field projection `.arch_rd` with a call to the function `RobEntry.arch_rd`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:292:54: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `phys_rd`
+
+Hint: Consider replacing the field projection `.phys_rd` with a call to the function `RobEntry.phys_rd`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:293:62: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `old_phys_rd`
+
+Hint: Consider replacing the field projection `.old_phys_rd` with a call to the function `RobEntry.old_phys_rd`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:294:58: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `reg_write`
+
+Hint: Consider replacing the field projection `.reg_write` with a call to the function `RobEntry.reg_write`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:295:50: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `mem_write`
+
+Hint: Consider replacing the field projection `.mem_write` with a call to the function `RobEntry.mem_write`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:296:48: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `mem_read`
+
+Hint: Consider replacing the field projection `.mem_read` with a call to the function `RobEntry.mem_read`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:298:44: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `pc`
+
+Hint: Consider replacing the field projection `.pc` with a call to the function `RobEntry.pc`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:300:62: error(lean.invalidField): Invalid field notation: Type of
+  entry
+is not known; cannot resolve field `mem_write`
+
+Hint: Consider replacing the field projection `.mem_write` with a call to the function `RobEntry.mem_write`.
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:342:2: error: don't know how to synthesize implicit argument `cdbw`
+  @step (?m.11 s i) (?m.12 s i) (?m.13 s i) w_idx s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+context:
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ Nat
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:342:2: error: don't know how to synthesize implicit argument `cw`
+  @step (?m.11 s i) (?m.12 s i) (?m.13 s i) w_idx s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+context:
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ Nat
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:342:2: error: don't know how to synthesize implicit argument `dw`
+  @step (?m.11 s i) (?m.12 s i) (?m.13 s i) w_idx s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+context:
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ Nat
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 4/rob.lean:343:2: error: Tactic `rfl` failed: The left-hand side
+  step s
+    { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+      dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+      dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+      dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+      dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+      dispatch_predicted_target := i.dispatch_predicted_target, dispatch_predicted_taken := i.dispatch_predicted_taken,
+      dispatch_checkpoint_id := i.dispatch_checkpoint_id, dispatch_checkpoint_valid := i.dispatch_checkpoint_valid,
+      cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag, cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx,
+      cdb_branch_complete := i.cdb_branch_complete, cdb_branch_mispredicted := i.cdb_branch_mispredicted,
+      cdb_branch_correct_pc := i.cdb_branch_correct_pc, cdb_branch_rob_idx := i.cdb_branch_rob_idx,
+      load_complete_valid := i.load_complete_valid, load_complete_rob_idx := i.load_complete_rob_idx,
+      store_addr_valid := i.store_addr_valid, store_addr_rob_idx := i.store_addr_rob_idx }
+is not definitionally equal to the right-hand side
+  init
+
+dw cw cdbw w_idx : Nat
+s : State w_idx
+i : Input dw cw cdbw w_idx
+⊢ step s
+      { rst := true, dispatch_valid := i.dispatch_valid, dispatch_arch_rd := i.dispatch_arch_rd,
+        dispatch_phys_rd := i.dispatch_phys_rd, dispatch_old_phys_rd := i.dispatch_old_phys_rd,
+        dispatch_reg_write := i.dispatch_reg_write, dispatch_mem_write := i.dispatch_mem_write,
+        dispatch_mem_read := i.dispatch_mem_read, dispatch_branch := i.dispatch_branch,
+        dispatch_branch_type := i.dispatch_branch_type, dispatch_pc := i.dispatch_pc,
+        dispatch_predicted_target := i.dispatch_predicted_target,
+        dispatch_predicted_taken := i.dispatch_predicted_taken, dispatch_checkpoint_id := i.dispatch_checkpoint_id,
+        dispatch_checkpoint_valid := i.dispatch_checkpoint_valid, cdb_valid := i.cdb_valid, cdb_tag := i.cdb_tag,
+        cdb_data := i.cdb_data, cdb_rob_idx := i.cdb_rob_idx, cdb_branch_complete := i.cdb_branch_complete,
+        cdb_branch_mispredicted := i.cdb_branch_mispredicted, cdb_branch_correct_pc := i.cdb_branch_correct_pc,
+        cdb_branch_rob_idx := i.cdb_branch_rob_idx, load_complete_valid := i.load_complete_valid,
+        load_complete_rob_idx := i.load_complete_rob_idx, store_addr_valid := i.store_addr_valid,
+        store_addr_rob_idx := i.store_addr_rob_idx } =
+    init
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (1)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

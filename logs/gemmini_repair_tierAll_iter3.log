@@ -1,0 +1,17 @@
+# Stats — 2026-05-02  sources=gemmini_repair  tiers=all  iters=[3]
+
+T  I  Source          Module                              Compiles   Sorry-free   Schema OK  Thms   Type          
+------------------------------------------------------------------------------------------------------------------
+4  3  gemmini_repair  fpu_dp_add_fixed                    NO         yes          YES        1      sequential    
+4  3  gemmini_repair  fpu_dp_div_fixed                    yes        yes          YES        1      sequential    
+4  3  gemmini_repair  rob_fixed                           NO         NO           YES        1      sequential    
+
+Compiles: 1/3  |  Sorry-free: 2/3  |  Schema-OK: 3/3
+  [gemmini_repair iter=3]  compiles=1/3  schema-ok=3/3
+
+Compilation errors (2 file(s)):
+  gemmini_repair/Iter 3/Tier 4/fpu_dp_add_fixed.lean
+  gemmini_repair/Iter 3/Tier 4/rob_fixed.lean
+
+Sorry violations (1 file(s)):
+  gemmini_repair/Iter 3/Tier 4/rob_fixed.lean

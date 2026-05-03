@@ -1,0 +1,40 @@
+## fpu_sp_add_fixed (gemmini_repair) — Iter 1
+
+- **Date**: 2026-05-02
+- **Tier**: 4
+- **Source**: gemmini_repair
+- **Repair iter**: 1
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_add_fixed.lean:87:7: error(lean.unknownIdentifier): Unknown identifier `cite_start`
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_add_fixed.lean:79:4: error: Missing cases:
+FsmState.OUT_RDY
+FsmState.PACK
+FsmState.ROUND
+FsmState.NORMALISE_2
+FsmState.NORMALISE_1
+FsmState.ADD_1
+FsmState.ADD_0
+FsmState.ALIGN
+FsmState.SPECIAL_CASES
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini-Repair/Iter 1/Tier 4/fpu_sp_add_fixed.lean:87:18: error: unexpected token 'let'; expected command
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: NO (0)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->

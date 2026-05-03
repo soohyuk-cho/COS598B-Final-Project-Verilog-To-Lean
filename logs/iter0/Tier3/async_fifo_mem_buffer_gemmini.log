@@ -1,0 +1,35 @@
+## async_fifo_mem_buffer (gemmini)
+
+- **Date**: 2026-05-02
+- **Tier**: 3
+- **Source**: gemmini
+- **Module type**: sequential
+
+### Level 0: Compilation
+- Compiles: NO
+- Sorry axiom in compiler output: no
+- Compiler output:
+```
+/Users/soohyuk.cho/Desktop/Princeton/SP26/COS598B/COS598B-Final-Project-Verilog-To-Lean/Leans-Gemmini/Tier 3/async_fifo_mem_buffer.lean:50:42: error: Application type mismatch: The argument
+  a
+has type
+  Nat
+but is expected to have type
+  Fin (a + 1)
+in the application
+  rd_ptr_bin_sync.getLsb a
+```
+
+### Level 1: Structural checks
+- Sorry-free (source text): yes
+- Has namespace: yes
+- Has Inputs/State: yes
+- Has Outputs/Output: yes
+- Has eval/step: yes
+- Has theorems: yes (2)
+- Schema OK: YES
+
+### Overall status: FAIL
+
+### Notes
+<!-- Add manual observations here: error categories, repair rounds, etc. -->
