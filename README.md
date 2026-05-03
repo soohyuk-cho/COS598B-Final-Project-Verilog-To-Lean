@@ -27,7 +27,7 @@ We evaluate two LLMs on a four-tier benchmark of increasing complexity:
 | Tier 3 | Controller-style (FIFOs, arbiters, circular buffers) | 12 |
 | Tier 4 | Complex datapaths (FPU, divider, reorder buffer) | 9 |
 
-![alt text](https://github.com/soohyuk-cho/COS598B-Final-Project-Verilog-To-Lean/blob/main/pipeline_diagram.pdf "Pipeline Diagram")
+![alt text](pipeline_diagram.png "Pipeline Diagram")
 
 The pipeline supports two modes:
 - **System A (One-shot):** Single-prompt Lean generation from Verilog + schema
